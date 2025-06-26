@@ -1,0 +1,48 @@
+# Bloody Red Ghostty Theme
+
+# Overall Colors
+background = #000000
+foreground = #FFFFFF
+cursor-color = #FF0000
+selection-background = #8B0000
+selection-foreground = #FFFFFF
+
+# --- ANSI Colors (16 colors) ---
+
+# Normal Colors
+
+# Black
+palette = 0=#1C1C1C
+# Red
+palette = 1=#DC143C
+# Green
+palette = 2=#2E8B57
+# Yellow
+palette = 3=#FFD700
+# Blue
+palette = 4=#4682B4
+# Magenta
+palette = 5=#9932CC
+# Cyan
+palette = 6=#5F9EA0
+# White
+palette = 7=#C0C0C0
+
+# Bright Colors
+
+# Bright Black (Gray)
+palette = 8=#696969
+# Bright Red
+palette = 9=#FF4500
+# Bright Green
+palette = 10=#32CD32
+# Bright Yellow
+palette = 11=#FFFF00
+# Bright Blue
+palette = 12=#1E90FF
+# Bright Magenta
+palette = 13=#DA70D6
+# Bright Cyan
+palette = 14=#00CED1
+# Bright White
+palette = 15=#FFFFFF
