@@ -11,22 +11,48 @@
         }
     },
     "modules": [
-        "host",
+        {
+            "type": "host",
+            "keyColor": "red"
+        },
         {
             "type": "cpu",
             "showPeCoreCount": true,
-            "temp": true
+            "temp": true,
+            "keyColor": "red"
         },
-        "memory",
-        "disk",
-        "uptime",
-        "shell",
-        "editor",
-        "terminal",
-        "terminalfont",
+        {
+            "type": "memory",
+            "keyColor": "red"
+        },
+        {
+            "type": "disk",
+            "keyColor": "red"
+        },
+        {
+            "type": "uptime",
+            "keyColor": "red"
+        },
+        {
+            "type": "shell",
+            "keyColor": "red"
+        },
+        {
+            "type": "editor",
+            "keyColor": "red"
+        },
+        {
+            "type": "terminal",
+            "keyColor": "red"
+        },
+        {
+            "type": "terminalfont",
+            "keyColor": "red"
+        },
         {
             "type": "publicip",
-            "timeout": 1000
+            "timeout": 1000,
+            "keyColor": "red"
         },
         {
             "type": "localip",
@@ -36,7 +62,8 @@
             "showMtu": false,
             "showLoop": false,
             "showFlags": false,
-            "showAllIps": true
+            "showAllIps": true,
+            "keyColor": "red"
         }
     ]
 }
