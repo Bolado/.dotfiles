@@ -1,17 +1,26 @@
-# window style
+# Appearance
 font-family = JetBrains Mono
 font-size = 16
 theme = blood-red
-shell-integration-features = no-cursor,sudo,no-title
-cursor-style = block
-adjust-cell-height = 35%
 background-opacity = 1
-mouse-scroll-multiplier = 0.5
-macos-titlebar-style = tabs
-mouse-hide-while-typing = true
-window-padding-balance = true 
-window-save-state = always
+adjust-cell-height = 35%
+window-padding-balance = true
 
-# keybindings
+# Cursor
+cursor-style = block
+
+# Shell Integration
+shell-integration-features = no-cursor,sudo,no-title
+
+# Window
+macos-titlebar-style = tabs
+window-save-state = always
+# macos-window-buttons = hidden #gonna be added on next release
+
+# Mouse
+mouse-scroll-multiplier = 0.5
+mouse-hide-while-typing = true
+
+# Keybindings
 keybind = cmd+s>r=reload_config
 
