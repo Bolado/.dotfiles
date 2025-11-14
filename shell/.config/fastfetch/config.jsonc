@@ -12,22 +12,26 @@
     },
     "modules": [
         {
-            "type": "host",
-            "keyColor": "red"
+            "type": "os",
+            "keyColor": "red",
+            "format": "{name} {codename} {version}"
         },
         {
             "type": "cpu",
             "showPeCoreCount": true,
             "temp": true,
-            "keyColor": "red"
+            "keyColor": "red",
+            "format": "{name} - {temperature}"
         },
         {
             "type": "memory",
-            "keyColor": "red"
+            "keyColor": "red",
+            "format": "{used} / {total}"
         },
         {
             "type": "disk",
-            "keyColor": "red"
+            "keyColor": "red",
+            "format": "{size-used} / {size-total} ({size-percentage}%)"
         },
         {
             "type": "uptime",
@@ -35,11 +39,13 @@
         },
         {
             "type": "shell",
-            "keyColor": "red"
+            "keyColor": "red",
+            "format": "{pretty-name}"
         },
         {
             "type": "editor",
-            "keyColor": "red"
+            "keyColor": "red",
+            "format": "{name}"
         },
         {
             "type": "terminal",
@@ -47,12 +53,14 @@
         },
         {
             "type": "terminalfont",
-            "keyColor": "red"
+            "keyColor": "red",
+            "format": "{name}"
         },
         {
             "type": "publicip",
             "timeout": 1000,
-            "keyColor": "red"
+            "keyColor": "red",
+            "format": "{ip}"
         },
         {
             "type": "localip",
@@ -63,7 +71,8 @@
             "showLoop": false,
             "showFlags": false,
             "showAllIps": true,
-            "keyColor": "red"
+            "keyColor": "red",
+            "format": "{ipv4}"
         }
     ]
 }

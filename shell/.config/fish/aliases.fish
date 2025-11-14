@@ -15,6 +15,7 @@ alias ffind="find . -name"
 # Commands
 alias ai-ui="DATA_DIR=~/.open-webui uvx --python 3.11 open-webui@latest serve"
 alias ai-serve="swama serve --host 0.0.0.0 --port 28100"
+alias c="clear; fastfetch"
 
 # just source fish config
 alias source-fish="source ~/.config/fish/config.fish"
