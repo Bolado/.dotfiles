@@ -17,7 +17,7 @@ alias ai-ui="DATA_DIR=~/.open-webui uvx --python 3.11 open-webui@latest serve"
 alias ai-serve="swama serve --host 0.0.0.0 --port 28100"
 alias c="clear; fastfetch"
 
-# just source fish config
+# Fish
 alias source-fish="source ~/.config/fish/config.fish"
 
 # Docker
@@ -29,3 +29,7 @@ alias uvu="uv pip uninstall"
 alias uvr="uv pip install -r requirements.txt"
 alias uve="uv venv"
 alias uvfreeze="uv pip freeze > requirements.txt"
+
+# Help
+
+alias h="cat ~/.dotfiles/shell/.config/fish/aliases.fish"
