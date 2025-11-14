@@ -32,18 +32,13 @@ hs.hotkey.bind({ "cmd" }, "2", function()
     searchAndOpen('Code')
 end)
 
--- cmd + 3 focus on IntelliJ IDEA
+-- cmd + 3 focus on Ghostty
 hs.hotkey.bind({ "cmd" }, "3", function()
-    searchAndOpen('IntelliJ')
-end)
-
--- cmd + 4 focus on Ghostty
-hs.hotkey.bind({ "cmd" }, "4", function()
     searchAndOpen('Ghostty')
 end)
 
--- cmd + 5 focus on Arc and switch to whatsapp/discord tab
-hs.hotkey.bind({ "cmd" }, "5", function()
+-- cmd + 4 focus on Arc and switch to whatsapp/discord tab
+hs.hotkey.bind({ "cmd" }, "4", function()
     log.i("Switching to WhatsApp/Discord tab in Arc")
     hs.osascript.applescript([[
     tell application "Arc"
@@ -66,6 +61,12 @@ hs.hotkey.bind({ "cmd" }, "5", function()
     end tell
     ]])
 end)
+
+-- cmd + 5 focus on IntelliJ IDEA
+hs.hotkey.bind({ "cmd" }, "5", function()
+    searchAndOpen('IntelliJ')
+end)
+
 
 -- cmd + P open or select the tab in Arc with Proxmox
 hs.hotkey.bind({ "cmd" }, "P", function()
