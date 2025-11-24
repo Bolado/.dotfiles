@@ -29,7 +29,7 @@ end)
 
 -- cmd + 2 focus on Code
 hs.hotkey.bind({ "cmd" }, "2", function()
-    searchAndOpen('Code')
+    searchAndOpen('Visual Studio Code - Insiders')
 end)
 
 -- cmd + 3 focus on Ghostty
@@ -49,15 +49,28 @@ hs.hotkey.bind({ "cmd" }, "4", function()
 
 	tell first window
 		set tabsCount to count of tabs
-		    repeat with i from 1 to tabsCount
-			    tell tab i
-				    set _url to URL
-				    if _url contains "web.whatsapp.com" or _url contains "canary.discord.com" then
-					    select
-				    end if
-			    end tell
-		    end repeat
-	    end tell
+		set currentURL to URL of active tab
+		set targetURL to ""
+
+        -- if we not on whatsapp or discord tab, go to whatsapp, else switch between them
+		if currentURL contains "web.whatsapp.com" then
+			set targetURL to "discord.com"
+		else if currentURL contains "discord.com" then
+			set targetURL to "web.whatsapp.com"
+		else
+			set targetURL to "web.whatsapp.com"
+		end if
+
+		repeat with i from 1 to tabsCount
+			tell tab i
+				set _url to URL
+				if _url contains targetURL then
+					select
+					exit repeat
+				end if
+			end tell
+		end repeat
+	end tell
     end tell
     ]])
 end)
