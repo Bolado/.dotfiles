@@ -1,3 +1,7 @@
+-- doing this below to avoid undefined-global diagnostic warnings
+---@diagnostic disable-next-line: undefined-global
+local hs = hs
+
 local log = hs.logger.new('init.lua', 'verbose')
 
 log.i('Initializing')
