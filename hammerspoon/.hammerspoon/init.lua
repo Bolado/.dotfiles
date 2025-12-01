@@ -122,3 +122,32 @@ hs.hotkey.bind({ "cmd", "shift" }, "F", function()
 		log.w("No frontmost window found")
 	end
 end)
+
+-- cmd + N open silverbullet tab on Arc
+hs.hotkey.bind({ "cmd" }, "N", function()
+	hs.osascript.applescript([[
+    tell application "Arc"
+	if (count of windows) is 0 then
+		make new window
+	end if
+    activate
+
+	tell first window
+		set tabsCount to count of tabs
+        set foundTab to false
+		    repeat with i from 1 to tabsCount
+			    tell tab i
+				    set _url to URL
+				    if _url contains "notes.bolado.dev" then
+					    select
+                        set foundTab to true
+				    end if
+			    end tell
+		    end repeat
+            if not foundTab then
+                make new tab with properties {URL:"https://notes.bolado.dev"}
+            end if
+	    end tell
+    end tell
+	]])
+end)
