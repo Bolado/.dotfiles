@@ -2,6 +2,9 @@
 ---@diagnostic disable-next-line: undefined-global
 local hs = hs
 
+-- Load WinWin spoon
+local WinWin = hs.loadSpoon("WinWin")
+
 local log = hs.logger.new('init.lua', 'verbose')
 
 local currentEditor = "Zed"
@@ -218,7 +221,15 @@ end)
 
 -- cmd + 3 focus on Ghostty
 hs.hotkey.bind({ "cmd" }, "3", function()
-    searchAndOpen('Ghostty')
+    local currentWindowInFocus = hs.window.focusedWindow()
+    local currentApp = currentWindowInFocus:application()
+    local currentAppName = currentApp:name()
+
+    if currentAppName == "Ghostty" then
+        -- TODO: implement logic to cycle between ghostty windows if there are multiple
+    else
+        hs.application.launchOrFocus("Ghostty")
+    end
 end)
 
 -- cmd + 4 focus on browser and switch between WhatsApp/Discord tabs
@@ -275,4 +286,9 @@ hs.hotkey.bind({ "cmd" }, "N", function()
     log.i("Activating browser tab with title containing 'notes -'")
     searchAndOpen(currentBrowser)
     activateTab("notes -", nil, "https://notes.bolado.dev")
+end)
+
+-- cmd + F fullscreen focused window
+hs.hotkey.bind({ "cmd", "shift" }, "F", function()
+    WinWin:moveAndResize("maximize")
 end)
