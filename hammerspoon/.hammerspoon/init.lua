@@ -59,6 +59,25 @@ local function openNewBrowserTab(url)
         currentBrowser, url, (now() - start) * 1000))
 end
 
+local function getMainBrowserWindow(app)
+    for _, w in ipairs(app:allWindows()) do
+        local title = w:title():lower()
+        if not string.find(title, "library") then
+            return w
+        end
+    end
+end
+
+local function activateBrowserWindow()
+    searchAndOpen(currentBrowser)
+    local app = getBrowserApp()
+    local win = getMainBrowserWindow(app)
+    if win then
+        log.d("w found: ", win)
+        win:focus()
+    end
+end
+
 local function getBrowserTabToolbar()
     local start = now()
     local app = getBrowserApp()
@@ -68,7 +87,7 @@ local function getBrowserTabToolbar()
         return nil
     end
 
-    local win = app:focusedWindow() or app:mainWindow()
+    local win = getMainBrowserWindow(app)
     if not win then
         log.w("No browser window found")
         log.d(string.format("getBrowserTabToolbar() failed (no window) after %.4f ms", (now() - start) * 1000))
@@ -211,7 +230,7 @@ end
 
 -- cmd + 1 focus on browser
 hs.hotkey.bind({ "cmd" }, "1", function()
-    searchAndOpen(currentBrowser)
+    activateBrowserWindow()
 end)
 
 -- cmd + 2 focus on the current code editor
@@ -236,7 +255,7 @@ end)
 hs.hotkey.bind({ "cmd" }, "4", function()
     log.i("Switching to WhatsApp/Discord tab in browser")
 
-    searchAndOpen(currentBrowser)
+    activateBrowserWindow()
 
     getActiveTab(function(activeTab)
         log.i("Active tab: " .. tostring(activeTab))
@@ -262,7 +281,7 @@ end)
 -- or open a new tab with https://proxmox.bolado.dev if not found
 hs.hotkey.bind({ "cmd" }, "P", function()
     log.i("Activating browser tab with title containing 'proxmox'")
-    searchAndOpen(currentBrowser)
+    activateBrowserWindow()
     activateTab("proxmox", nil, "https://proxmox.bolado.dev")
 end)
 
@@ -284,7 +303,7 @@ end)
 -- our silverbullet script makes it easy by setting "notes -" at the beginning of the title
 hs.hotkey.bind({ "cmd" }, "N", function()
     log.i("Activating browser tab with title containing 'notes -'")
-    searchAndOpen(currentBrowser)
+    activateBrowserWindow()
     activateTab("notes -", nil, "https://notes.bolado.dev")
 end)
 
