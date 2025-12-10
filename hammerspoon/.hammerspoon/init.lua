@@ -292,3 +292,11 @@ end)
 hs.hotkey.bind({ "cmd", "shift" }, "F", function()
     WinWin:moveAndResize("maximize")
 end)
+
+-- cmd + ctrl + v 'write' clipboard content when its not possible to just paste
+hs.hotkey.bind({ "cmd", "ctrl" }, "v", function()
+    local clipboardContent = hs.pasteboard.getContents()
+    if clipboardContent then
+        hs.eventtap.keyStrokes(clipboardContent)
+    end
+end)
